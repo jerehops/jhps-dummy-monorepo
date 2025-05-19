@@ -77,7 +77,7 @@ app.post('/login', (req, res) => {
     // Compare password using bcrypt
     bcrypt.compare(password, user.password, (err, isMatch) => {
       if (err) return res.status(500).json({ message: 'Error comparing password' });
-      if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
+      if (!isMatch) return res.status(401).json({ message: 'Invalid credentials please try again' });
 
       // Generate a JWT token with a secure secret and expiration
       const token = jwt.sign({ userId: user.id, username: user.username }, SECRET_KEY, { expiresIn: '1h' });

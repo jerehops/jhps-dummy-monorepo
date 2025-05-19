@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       <h1>Vulnerable Frontend App</h1>
       <h2>This is a new text</h2>
+      <h2>This is a can of coke</h2>
       <input 
         type="text" 
         placeholder="Enter text"
