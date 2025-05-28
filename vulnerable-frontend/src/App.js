@@ -14,6 +14,7 @@ function App() {
       <h2>This is a new text</h2>
       <h2>This is a can of coke</h2>
       <h2>This is a hello of coke</h2>
+      <h2>This is a piece of cake</h2>
       <input 
         type="text" 
         placeholder="Enter text"
