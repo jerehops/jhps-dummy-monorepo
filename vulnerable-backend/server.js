@@ -26,6 +26,12 @@ function fun(a) {
   i++;             // Noncompliant; this is never executed
 }
 
+function hackerman(a) {
+  var i = 10;
+  return i + a; 
+  i++;             // Noncompliant; this is never executed
+}
+
 // JWT Secret Key (stored in environment variable for security)
 const SECRET_KEY = process.env.JWT_SECRET || 'your-secure-secret-key';  // Do not hardcode this in real applications!
 
