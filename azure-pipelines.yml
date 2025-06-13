@@ -49,7 +49,7 @@ steps:
       cliProjectName: 'jhps-github-backend'
       cliSources: './vulnerable-backend'
       extraProperties: |
-        sonar.qualitygate.wait
+        sonar.qualitygate.wait=true
         
   - task: NodeTool@0
     inputs:
