@@ -18,15 +18,6 @@ steps:
       cliSources: './vulnerable-frontend'
       extraProperties: |
         sonar.qualitygate.wait
-  # - task: SonarCloudPrepare@3
-  #   inputs:
-  #     SonarQube: 'sqcloud'
-  #     organization: 'jeremyho'
-  #     scannerMode: 'cli'
-  #     configMode: 'manual'
-  #     cliProjectKey: 'jhps-test-frontend'
-  #     cliProjectName: 'jhps-test-frontend'
-  #     cliSources: './vulnerable-frontend'
 
   - task: NodeTool@0
     inputs:
@@ -48,17 +39,6 @@ steps:
     continueOnError: false
     inputs:
       jdkversion: 'JAVA_HOME_17_X64'
-  # - task: SonarCloudAnalyze@3
-  #   inputs:
-  #     jdkversion: 'JAVA_HOME_17_X64'
-
-  # Publish Quality Gate Result task
-  # - task: SonarQubePublish@7
-  #   inputs:
-  #     pollingTimeoutSec: '300'
-  # - task: SonarCloudPublish@3
-  #   inputs:
-  #     pollingTimeoutSec: '300'
 
   - task: SonarQubePrepare@7
     inputs:
@@ -70,15 +50,7 @@ steps:
       cliSources: './vulnerable-backend'
       extraProperties: |
         sonar.qualitygate.wait
-  # - task: SonarCloudPrepare@3
-  #   inputs:
-  #     SonarQube: 'sqcloud'
-  #     organization: 'jeremyho'
-  #     scannerMode: 'cli'
-  #     configMode: 'manual'
-  #     cliProjectKey: 'jhps-test-backend'
-  #     cliProjectName: 'jhps-test-backend'
-  #     cliSources: './vulnerable-backend'
+        
   - task: NodeTool@0
     inputs:
       versionSource: 'spec'
@@ -99,14 +71,3 @@ steps:
     continueOnError: false
     inputs:
       jdkversion: 'JAVA_HOME_17_X64'
-  # - task: SonarCloudAnalyze@3
-  #   inputs:
-  #     jdkversion: 'JAVA_HOME_17_X64'  
-
-  # Publish Quality Gate Result task
-  # - task: SonarQubePublish@7
-  #   inputs:
-  #     pollingTimeoutSec: '300'
-  # - task: SonarCloudPublish@3
-  #   inputs:
-  #     pollingTimeoutSec: '300'
