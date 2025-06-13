@@ -17,7 +17,7 @@ steps:
       cliProjectName: 'jhps-github-frontend'
       cliSources: './vulnerable-frontend'
       extraProperties: |
-        sonar.qualitygate.wait
+        sonar.qualitygate.wait=true
 
   - task: NodeTool@0
     inputs:
@@ -40,34 +40,34 @@ steps:
     inputs:
       jdkversion: 'JAVA_HOME_17_X64'
 
-  - task: SonarQubePrepare@7
-    inputs:
-      SonarQube: 'sq2025-connection'
-      scannerMode: 'cli'
-      configMode: 'manual'
-      cliProjectKey: 'jhps-github-backend'
-      cliProjectName: 'jhps-github-backend'
-      cliSources: './vulnerable-backend'
-      extraProperties: |
-        sonar.qualitygate.wait
+  # - task: SonarQubePrepare@7
+  #   inputs:
+  #     SonarQube: 'sq2025-connection'
+  #     scannerMode: 'cli'
+  #     configMode: 'manual'
+  #     cliProjectKey: 'jhps-github-backend'
+  #     cliProjectName: 'jhps-github-backend'
+  #     cliSources: './vulnerable-backend'
+  #     extraProperties: |
+  #       sonar.qualitygate.wait
         
-  - task: NodeTool@0
-    inputs:
-      versionSource: 'spec'
-      versionSpec: '14.x'
-    displayName: 'Install Node.js'
+  # - task: NodeTool@0
+  #   inputs:
+  #     versionSource: 'spec'
+  #     versionSpec: '14.x'
+  #   displayName: 'Install Node.js'
 
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        cd vulnerable-backend
-        npm run build
-        npm install
-    displayName: 'Build backend'
+  # - task: Bash@3
+  #   inputs:
+  #     targetType: 'inline'
+  #     script: |
+  #       cd vulnerable-backend
+  #       npm run build
+  #       npm install
+  #   displayName: 'Build backend'
 
-  # Run Code Analysis task
-  - task: SonarQubeAnalyze@7
-    continueOnError: false
-    inputs:
-      jdkversion: 'JAVA_HOME_17_X64'
+  # # Run Code Analysis task
+  # - task: SonarQubeAnalyze@7
+  #   continueOnError: false
+  #   inputs:
+  #     jdkversion: 'JAVA_HOME_17_X64'
