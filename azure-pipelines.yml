@@ -3,7 +3,11 @@ trigger:
     include:
       - main
       - feature/*
-
+pr:
+  branches:
+    include:
+    - main
+    
 steps:
   - checkout: self
     fetchDepth: 0
